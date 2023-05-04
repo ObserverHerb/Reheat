@@ -3,7 +3,6 @@
 #include <QWebSocket>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QPoint>
 #include <Windows.h>
 #include <optional>
 
