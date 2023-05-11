@@ -154,7 +154,7 @@ int main(int argc,char *argv[])
 				}
 			}
 		};
-		SendInput(2,input,sizeof(INPUT));
+		SendInput(2,inputs,sizeof(INPUT));
 	});
 
 	QMetaObject::invokeMethod(&socket,[&socket,&targets]() {
