@@ -132,7 +132,29 @@ int main(int argc,char *argv[])
 		POINT screen={std::lrint(clickX),std::lrint(clickY)};
 		ClientToScreen(window,&screen);
 		SetCursorPos(screen.x,screen.y);
-		SendNotifyMessageA(window,WM_LBUTTONDOWN,MK_LBUTTON,MAKELONG(clickX,clickY));
+		INPUT inputs[2]={
+			{
+				.type=INPUT_MOUSE,
+				.mi={
+					.dx=screen.x,
+					.dy=screen.y,
+					.mouseData=0,
+					.dwFlags=MOUSEEVENTF_ABSOLUTE|MOUSEEVENTF_LEFTDOWN,
+					.time=0
+				}
+			},
+			{
+				.type=INPUT_MOUSE,
+				.mi={
+					.dx=screen.x,
+					.dy=screen.y,
+					.mouseData=0,
+					.dwFlags=MOUSEEVENTF_ABSOLUTE|MOUSEEVENTF_LEFTUP,
+					.time=0
+				}
+			}
+		};
+		SendInput(2,input,sizeof(INPUT));
 	});
 
 	QMetaObject::invokeMethod(&socket,[&socket,&targets]() {
