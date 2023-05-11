@@ -127,7 +127,7 @@ int main(int argc,char *argv[])
 		GetClientRect(window,&dimensions);
 		double clickX=dimensions.right*payload->value("x").toString().toDouble();
 		double clickY=dimensions.bottom*payload->value("y").toString().toDouble();
-		Message(u"Click"_s,QString{"X: %1, Y: %2"}.arg(clickX,clickY));
+		Message(u"Click"_s,QString{"X: %1, Y: %2"}.arg(QString::number(clickX),QString::number(clickY)));
 		SetForegroundWindow(window);
 		POINT screen={std::lrint(clickX),std::lrint(clickY)};
 		ClientToScreen(window,&screen);
