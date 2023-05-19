@@ -186,7 +186,7 @@ void ForwardClick(NormalizedPoint &normalizedPoint)
 			}
 		}
 	};
-	//SendInput(2,inputs,sizeof(INPUT));
+	SendInput(2,inputs,sizeof(INPUT));
 }
 
 VOID CALLBACK HTTPCallback(HINTERNET handle,DWORD_PTR context,DWORD status,LPVOID data,DWORD dataSize)
